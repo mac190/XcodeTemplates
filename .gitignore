@@ -1,5 +1,5 @@
 *
 !.gitignore
-!/Custom/*
-!/Tests/*
-!/Networking/*
+!*/Custom/*
+!*/Tests/*
+!*/Networking/*
