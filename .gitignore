@@ -1,5 +1,6 @@
 *
 !.gitignore
+!Custom
 !Custom/*
 !*/Custom/*
 !*/Tests/*
