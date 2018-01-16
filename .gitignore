@@ -1,0 +1,5 @@
+*
+!.gitignore
+!/Custom/*
+!/Tests/*
+!/Networking/*
