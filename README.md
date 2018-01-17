@@ -12,7 +12,9 @@ This README would normally document whatever steps are necessary to get your app
 
 * Clone repo
 * create a symlink to you XCode Templates folder
-	ln -s "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates" "/Yours/Favorite/Cloned/Repo/Path"
+```
+ln -s "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates" "/Yours/Favorite/Cloned/Repo/Path"
+```
 * Navigate to it in Finder, click on Get info and navigate to "Sharing & Permissions", add your user there with "Read & Write" permissions
 * Done
 
