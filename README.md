@@ -1,13 +1,5 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
 ### How do I get set up? ###
 
 * Clone repo
@@ -17,17 +9,6 @@ ln -s "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File T
 ```
 * Navigate to it in Finder, click on Get info and navigate to "Sharing & Permissions", add your user there with "Read & Write" permissions
 * Done
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
 
 ### Test Templates ###
 
