@@ -7,7 +7,7 @@
 ```
 ln -s "/Applications/Xcode.app/Contents/Developer/Library/Xcode/Templates/File Templates" "/Yours/Favorite/Cloned/Repo/Path"
 ```
-* Navigate to it in Finder, click on Get info and navigate to "Sharing & Permissions", add your user there with "Read & Write" permissions
+* Navigate to xCode path in Finder, click on Get info and navigate to "Sharing & Permissions", add your user there with "Read & Write" permissions
 * Done
 
 ### Test Templates ###
