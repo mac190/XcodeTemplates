@@ -1,5 +1,5 @@
 //
-//  ___FILENAME___Spec
+//  ___FILENAME___
 //  ___PROJECTNAME___
 //
 //  Created by ___FULLUSERNAME___ on ___DATE___.
@@ -10,14 +10,20 @@
 import Quick
 import Nimble
 import Foundation
-import SwiftyJSON
 
-class ___FILEBASENAME___Spec {
+class ___FILEBASENAME___: QuickSpec {
+    
     override func spec() {
+        
+        beforeEach {
+            
+        }
+        
         describe("test description here") {
             it("Test item here") {
                 
             }
         }
     }
+    
 }

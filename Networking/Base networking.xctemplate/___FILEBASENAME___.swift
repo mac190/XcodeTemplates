@@ -7,13 +7,11 @@
 //
 
 import Alamofire
-import SwiftyJSON
 import SwiftyBeaver
 
 protocol Networking {
-    func handleResponseSuccess(json: JSON?)
-    func handleResponseBadRequest(json: JSON?)
-    func handleResponseUnauthorized()
+    func handleResponseSuccess(response: DefaultDataResponse)
+    func handleResponseBadRequest()
     func handleResponseNoInternetConnection()
     func handleUnknownError()
 }
@@ -32,36 +30,40 @@ class ___FILEBASENAME___: Networking {
     // MARK: Request
     func makeRequest(request: HTTPRequest) {
         log.debug("REQUEST : \(request.debugDescription)")
-        manager.request(request.url, method: request.method, parameters: request.parameters, encoding: JSONEncoding.default, headers: request.headers).responseJSON(completionHandler:  {
-                response in
-                self.log.debug("RESPONSE : \(String(describing: response.response))")
-                self.log.debug(response)
-                self.handleResponse(response: response)
-            })
-    }
-    
-    // MARK: Response
-    func handleResponse(response: DataResponse<Any>) {
-        switch response.result {
-        case .success(let value):
-            successResponse(json: JSON(value), response: response)
-        case .failure(let error):
-            errorResponse(error: error)
+        manager.request(request.url, method: request.method, parameters: request.parameters, encoding: request.encoding, headers: request.headers).response { (response) in
+            if response.data != nil {
+                self.handleResponse(response: response, request: request)
+            } else {
+                self.handleUnknownError()
+            }
         }
     }
     
-    func successResponse(json: JSON?, response: DataResponse<Any>) {
+    // MARK: Response
+    func handleResponse(response: DefaultDataResponse, request: HTTPRequest) {
+        if response.error == nil {
+            successResponse(response: response, request: request)
+        } else if let error = response.error {
+            errorResponse(error: error)
+        } else {
+            handleUnknownError()
+        }
+    }
+    
+    func successResponse(response: DefaultDataResponse, request: HTTPRequest) {
         if let code = response.response?.statusCode {
             switch code {
-            case ErrorCodes.authorization:
-                handleResponseUnauthorized()
             case ErrorCodes.badRequest:
-                handleResponseBadRequest(json: json)
+                handleResponseBadRequest()
             case SuccessCodes.created, SuccessCodes.ok:
-                handleResponseSuccess(json: json)
+                handleResponseSuccess(response: response)
             default:
                 handleUnknownError()
             }
+        } else if let error = response.error as NSError?, error.code == ErrorCodes.notConnectedToInternet {
+            handleResponseNoInternetConnection()
+        } else if let error = response.error as NSError?, error.code == ErrorCodes.timeout {
+            handleTimeout()
         } else {
             handleUnknownError()
         }
@@ -80,14 +82,14 @@ class ___FILEBASENAME___: Networking {
     // MARK: Headers
     func getHeaders() -> [String : String] {
         var headers = [String : String]()
-        headers[HeadersKeys.ContentType.name] = HeadersKeys.ContentType.value
-        headers[HeadersKeys.Accept.name] = HeadersKeys.Accept.value
-        headers[HeadersKeys.Authorization.name] = HeadersKeys.Authorization.value
+//        headers[HeadersKeys.ContentType.name] = HeadersKeys.ContentType.value
+//        headers[HeadersKeys.Accept.name] = HeadersKeys.Accept.value
+//        headers[HeadersKeys.Authorization.name] = HeadersKeys.Authorization.value
         return headers
     }
     
-    func handleResponseUnauthorized() {
-        // Tutaj robimy zapytanie o refresh jak się nie uda to walimy notyfikacje i wymuszamy ponowne logowanie.
+    func handleTimeout() {
+        log.error("You need to override this method in you networking class")
     }
     
     func handleUnknownError() {
@@ -98,11 +100,11 @@ class ___FILEBASENAME___: Networking {
         log.error("You need to override this method in you networking class")
     }
     
-    func handleResponseBadRequest(json: JSON?) {
+    func handleResponseBadRequest() {
         log.error("You need to override this method in you networking class")
     }
     
-    func handleResponseSuccess(json: JSON?) {
+    func handleResponseSuccess(response: DefaultDataResponse) {
         log.error("You need to override this method in you networking class")
     }
 }

@@ -15,6 +15,7 @@ class ___FILEBASENAME___: CustomDebugStringConvertible {
     var method: HTTPMethod
     var parameters: Parameters?
     var headers: HTTPHeaders?
+    var encoding: ParameterEncoding = JSONEncoding.default
     
     var debugDescription: String {
         return "URL - \(url) METHOD - \(method) PARAMETERS - \(String(describing: parameters)) HEADERS - \(String(describing: headers))"
@@ -25,6 +26,14 @@ class ___FILEBASENAME___: CustomDebugStringConvertible {
         self.method = method
         self.parameters = parameters
         self.headers = headers
+    }
+    
+    init(url: URLConvertible, method: HTTPMethod, parameters: Parameters?, headers: HTTPHeaders, encoding: ParameterEncoding) {
+        self.url = url
+        self.method = method
+        self.parameters = parameters
+        self.headers = headers
+        self.encoding = encoding
     }
     
 }
