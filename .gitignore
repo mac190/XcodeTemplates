@@ -2,8 +2,8 @@
 !.gitignore
 !README.md
 !Custom
-!Custom/**
+!Custom
 !Tests
 !Tests/**
 !Networking
-!Networking/**
+!Networking
