@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ___FILEBASENAME___: UIViewController {
+final class ___FILEBASENAME___: UIViewController {
     
     init() {
         super.init(nibName: nil, bundle: nil)

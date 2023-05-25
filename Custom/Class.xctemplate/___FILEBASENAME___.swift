@@ -6,6 +6,6 @@
 //___COPYRIGHT___
 //
 
-class ___FILEBASENAME___ {
+final class ___FILEBASENAME___ {
     
 }

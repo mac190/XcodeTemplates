@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-protocol ___VARIABLE_moduleName___: class {
+protocol ___VARIABLE_moduleName___: AnyObject {
     
 }
 
-class ___VARIABLE_moduleName___Impl: ___VARIABLE_moduleName___ {
+final class ___VARIABLE_moduleName___Impl: ___VARIABLE_moduleName___ {
     
 }

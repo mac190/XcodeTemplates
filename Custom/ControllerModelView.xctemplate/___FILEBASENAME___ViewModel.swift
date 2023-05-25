@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-protocol ___VARIABLE_moduleName___ViewModel: class {
+protocol ___VARIABLE_moduleName___ViewModel: AnyObject {
     
 }
 
-class ___VARIABLE_moduleName___ViewModelImpl: ___VARIABLE_moduleName___ViewModel {
+final class ___VARIABLE_moduleName___ViewModelImpl: ___VARIABLE_moduleName___ViewModel {
     
 }

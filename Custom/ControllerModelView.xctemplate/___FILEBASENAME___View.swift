@@ -9,11 +9,11 @@
 import Foundation
 import UIKit
 
-fileprivate struct Constants {
+private struct Constants {
     
 }
 
-class ___VARIABLE_moduleName___View: UIView {
+final class ___VARIABLE_moduleName___View: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

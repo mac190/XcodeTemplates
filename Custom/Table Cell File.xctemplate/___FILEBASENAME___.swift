@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ___FILEBASENAME___: UITableViewCell {
+final class ___FILEBASENAME___: UITableViewCell {
     
     let mainView = ___VARIABLE_moduleName___View()
     
@@ -20,7 +20,7 @@ class ___FILEBASENAME___: UITableViewCell {
         mainView.setupView()
     }
     
-    fileprivate func setupCell() {
+    private func setupCell() {
         backgroundColor = UIColor.clear
         selectionStyle = .none
     }

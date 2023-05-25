@@ -14,13 +14,13 @@ fileprivate struct Constants {
     
 }
 
-class ___FILEBASENAME___: UIView {
+final class ___FILEBASENAME___: UIView {
     
     func setupView() {
         setupSelf()
     }
     
-    fileprivate func setupSelf() {
+    private func setupSelf() {
         snp.makeConstraints { (make) in
             make.leading.trailing.top.bottom.equalTo(0)
         }

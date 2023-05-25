@@ -12,6 +12,6 @@ protocol ___VARIABLE_moduleName___: class {
     
 }
 
-class ___VARIABLE_moduleName___Impl: ___VARIABLE_moduleName___ {
+final class ___VARIABLE_moduleName___Impl: ___VARIABLE_moduleName___ {
     
 }
